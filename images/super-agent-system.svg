@@ -1,0 +1,99 @@
+<svg width="1200" height="760" viewBox="0 0 1200 760" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="760" rx="32" fill="#061A33"/>
+
+  <defs>
+    <linearGradient id="blue" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#00D5FF"/>
+      <stop offset="100%" stop-color="#0A5CFF"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <text x="600" y="70" text-anchor="middle" fill="#FFFFFF" font-size="34" font-family="Arial" font-weight="700">
+    SUPER AGENT Mechanism
+  </text>
+
+  <text x="600" y="108" text-anchor="middle" fill="#A9C7FF" font-size="18" font-family="Arial">
+    Decision Engine · Execution Scheduler · Risk Control System
+  </text>
+
+  <g opacity="0.14">
+    <line x1="100" y1="170" x2="1100" y2="170" stroke="#5DA8FF"/>
+    <line x1="100" y1="300" x2="1100" y2="300" stroke="#5DA8FF"/>
+    <line x1="100" y1="430" x2="1100" y2="430" stroke="#5DA8FF"/>
+    <line x1="100" y1="560" x2="1100" y2="560" stroke="#5DA8FF"/>
+  </g>
+
+  <rect x="90" y="175" width="210" height="82" rx="22" fill="#0B274D" stroke="#1E7BFF" stroke-width="2"/>
+  <text x="195" y="209" text-anchor="middle" fill="#FFFFFF" font-size="20" font-family="Arial" font-weight="700">Market State</text>
+  <text x="195" y="236" text-anchor="middle" fill="#A9C7FF" font-size="14" font-family="Arial">Price · Trend · Volatility</text>
+
+  <rect x="360" y="175" width="210" height="82" rx="22" fill="#0B274D" stroke="#1E7BFF" stroke-width="2"/>
+  <text x="465" y="209" text-anchor="middle" fill="#FFFFFF" font-size="20" font-family="Arial" font-weight="700">Account State</text>
+  <text x="465" y="236" text-anchor="middle" fill="#A9C7FF" font-size="14" font-family="Arial">Balance · Position · Margin</text>
+
+  <rect x="630" y="175" width="210" height="82" rx="22" fill="#0B274D" stroke="#1E7BFF" stroke-width="2"/>
+  <text x="735" y="209" text-anchor="middle" fill="#FFFFFF" font-size="20" font-family="Arial" font-weight="700">Capital State</text>
+  <text x="735" y="236" text-anchor="middle" fill="#A9C7FF" font-size="14" font-family="Arial">Funds · Cycle · Weight</text>
+
+  <rect x="900" y="175" width="210" height="82" rx="22" fill="#0B274D" stroke="#1E7BFF" stroke-width="2"/>
+  <text x="1005" y="209" text-anchor="middle" fill="#FFFFFF" font-size="20" font-family="Arial" font-weight="700">Risk State</text>
+  <text x="1005" y="236" text-anchor="middle" fill="#A9C7FF" font-size="14" font-family="Arial">Drawdown · Exposure</text>
+
+  <path d="M195 262 C280 310 380 335 470 350" stroke="#00D5FF" stroke-width="2" opacity="0.55"/>
+  <path d="M465 262 C500 310 525 335 550 350" stroke="#00D5FF" stroke-width="2" opacity="0.55"/>
+  <path d="M735 262 C700 310 675 335 650 350" stroke="#00D5FF" stroke-width="2" opacity="0.55"/>
+  <path d="M1005 262 C920 310 820 335 730 350" stroke="#00D5FF" stroke-width="2" opacity="0.55"/>
+
+  <g filter="url(#glow)">
+    <rect x="335" y="355" width="530" height="120" rx="34" fill="url(#blue)"/>
+    <text x="600" y="402" text-anchor="middle" fill="#FFFFFF" font-size="31" font-family="Arial" font-weight="700">
+      SUPER AGENT
+    </text>
+    <text x="600" y="435" text-anchor="middle" fill="#EAF3FF" font-size="17" font-family="Arial">
+      AI Trading Execution Core
+    </text>
+  </g>
+
+  <rect x="170" y="510" width="250" height="88" rx="24" fill="#0B274D" stroke="#1E7BFF" stroke-width="2"/>
+  <text x="295" y="545" text-anchor="middle" fill="#FFFFFF" font-size="21" font-family="Arial" font-weight="700">Decision Engine</text>
+  <text x="295" y="574" text-anchor="middle" fill="#A9C7FF" font-size="15" font-family="Arial">Analyze · Decide · Intent</text>
+
+  <rect x="475" y="510" width="250" height="88" rx="24" fill="#0B274D" stroke="#1E7BFF" stroke-width="2"/>
+  <text x="600" y="545" text-anchor="middle" fill="#FFFFFF" font-size="21" font-family="Arial" font-weight="700">Execution Scheduler</text>
+  <text x="600" y="574" text-anchor="middle" fill="#A9C7FF" font-size="15" font-family="Arial">Task · Route · Dispatch</text>
+
+  <rect x="780" y="510" width="250" height="88" rx="24" fill="#0B274D" stroke="#1E7BFF" stroke-width="2"/>
+  <text x="905" y="545" text-anchor="middle" fill="#FFFFFF" font-size="21" font-family="Arial" font-weight="700">Risk System</text>
+  <text x="905" y="574" text-anchor="middle" fill="#A9C7FF" font-size="15" font-family="Arial">Limit · Protect · Monitor</text>
+
+  <path d="M500 480 C430 500 360 510 300 510" stroke="#00D5FF" stroke-width="3" opacity="0.75"/>
+  <path d="M600 480 L600 510" stroke="#00D5FF" stroke-width="3" opacity="0.75"/>
+  <path d="M700 480 C770 500 840 510 900 510" stroke="#00D5FF" stroke-width="3" opacity="0.75"/>
+
+  <path d="M420 555 L470 555" stroke="#00D5FF" stroke-width="4" stroke-linecap="round"/>
+  <path d="M458 545 L472 555 L458 565" stroke="#00D5FF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <path d="M725 555 L775 555" stroke="#00D5FF" stroke-width="4" stroke-linecap="round"/>
+  <path d="M763 545 L777 555 L763 565" stroke="#00D5FF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <path d="M600 605 L600 645" stroke="#00D5FF" stroke-width="4" stroke-linecap="round"/>
+  <path d="M590 635 L600 649 L610 635" stroke="#00D5FF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <g filter="url(#glow)">
+    <rect x="380" y="655" width="440" height="58" rx="22" fill="#0B274D" stroke="#00D5FF" stroke-width="2"/>
+    <text x="600" y="690" text-anchor="middle" fill="#FFFFFF" font-size="21" font-family="Arial" font-weight="700">
+      Smart Routing → Execution Layer → Yield & Verification
+    </text>
+  </g>
+
+  <text x="600" y="735" text-anchor="middle" fill="#7FB2FF" font-size="16" font-family="Arial">
+    SUPER AGENT turns market, account, capital, and risk states into executable trading capability.
+  </text>
+</svg>
