@@ -12,111 +12,96 @@
     "light": "/images/logo.png",
     "dark": "/images/logo.png"
   },
-  "navbar": {
-    "links": [
-      {
-        "label": "官网",
-        "href": "https://superflow.me"
-      },
-      {
-        "label": "白皮书",
-        "href": "/overview/introduction"
-      },
-      {
-        "label": "风险披露",
-        "href": "/legal/risk-disclosure"
-      },
-      {
-        "label": "中文",
-        "href": "/"
-      },
-      {
-        "label": "EN",
-        "href": "/en"
-      }
-    ],
-    "primary": {
-      "type": "button",
-      "label": "开始了解",
-      "href": "/overview/introduction"
-    }
-  },
-  "footer": {
-    "socials": {
-      "website": "https://superflow.me",
-      "x": "https://x.com/SUPERFLOWINC/",
-      "telegram": "https://t.me/superflow003"
-    },
-    "links": [
-      {
-        "header": "Protocol",
-        "items": [
-          {
-            "label": "系统架构",
-            "href": "/protocol/architecture"
-          },
-          {
-            "label": "SUPER AGENT",
-            "href": "/protocol/super-agent"
-          },
-          {
-            "label": "智能路由",
-            "href": "/protocol/smart-routing"
-          },
-          {
-            "label": "凭证系统",
-            "href": "/protocol/verification-system"
-          }
-        ]
-      },
-      {
-        "header": "SUPER Token",
-        "items": [
-          {
-            "label": "SUPER Token",
-            "href": "/token/super-token"
-          },
-          {
-            "label": "代币用途",
-            "href": "/token/utility"
-          },
-          {
-            "label": "回购销毁",
-            "href": "/token/buyback-burn"
-          },
-          {
-            "label": "系统飞轮",
-            "href": "/token/flywheel"
-          }
-        ]
-      },
-      {
-        "header": "Resources",
-        "items": [
-          {
-            "label": "常见问题",
-            "href": "/resources/faq"
-          },
-          {
-            "label": "品牌资产",
-            "href": "/resources/brand-assets"
-          },
-          {
-            "label": "免责声明",
-            "href": "/legal/disclaimer"
-          },
-          {
-            "label": "风险披露",
-            "href": "/legal/risk-disclosure"
-          }
-        ]
-      }
-    ]
-  },
   "navigation": {
-    "tabs": [
+    "languages": [
       {
-        "tab": "开始",
+        "language": "zh",
+        "default": true,
+        "navbar": {
+          "links": [
+            {
+              "label": "官网",
+              "href": "https://superflow.me"
+            },
+            {
+              "label": "白皮书",
+              "href": "/SuperFlow_Whitepaper_EN_.pdf"
+            },
+            {
+              "label": "风险披露",
+              "href": "/legal/risk-disclosure"
+            }
+          ],
+          "primary": {
+            "type": "button",
+            "label": "开始了解",
+            "href": "/overview/introduction"
+          }
+        },
+        "footer": {
+          "socials": {
+            "website": "https://superflow.me",
+            "x": "https://x.com/SUPERFLOWINC/",
+            "telegram": "https://t.me/superflow003"
+          },
+          "links": [
+            {
+              "header": "协议",
+              "items": [
+                {
+                  "label": "系统架构",
+                  "href": "/protocol/architecture"
+                },
+                {
+                  "label": "SUPER AGENT",
+                  "href": "/protocol/super-agent"
+                },
+                {
+                  "label": "智能路由",
+                  "href": "/protocol/smart-routing"
+                },
+                {
+                  "label": "凭证系统",
+                  "href": "/protocol/verification-system"
+                }
+              ]
+            },
+            {
+              "header": "SUPER Token",
+              "items": [
+                {
+                  "label": "SUPER Token",
+                  "href": "/token/super-token"
+                },
+                {
+                  "label": "代币用途",
+                  "href": "/token/utility"
+                },
+                {
+                  "label": "系统飞轮",
+                  "href": "/token/flywheel"
+                }
+              ]
+            },
+            {
+              "header": "资源与法律",
+              "items": [
+                {
+                  "label": "常见问题",
+                  "href": "/resources/faq"
+                },
+                {
+                  "label": "免责声明",
+                  "href": "/legal/disclaimer"
+                },
+                {
+                  "label": "风险披露",
+                  "href": "/legal/risk-disclosure"
+                }
+              ]
+            }
+          ]
+        },
         "groups": [
           {
             "group": "SuperFlow Protocol",
@@ -131,12 +116,7 @@
               "overview/why-superflow",
               "overview/system-philosophy"
             ]
-          }
-        ]
-      },
-      {
-        "tab": "协议",
-        "groups": [
+          },
           {
             "group": "核心架构",
             "pages": [
@@ -153,12 +133,7 @@
               "protocol/risk-control",
               "protocol/verification-system"
             ]
-          }
-        ]
-      },
-      {
-        "tab": "SUPER Token",
-        "groups": [
+          },
           {
             "group": "代币机制",
             "pages": [
@@ -167,12 +142,7 @@
               "token/buyback-burn",
               "token/flywheel"
             ]
-          }
-        ]
-      },
-      {
-        "tab": "使用指南",
-        "groups": [
+          },
           {
             "group": "用户流程",
             "pages": [
@@ -182,12 +152,7 @@
               "guide/view-yield",
               "guide/verify-records"
             ]
-          }
-        ]
-      },
-      {
-        "tab": "资源与法律",
-        "groups": [
+          },
           {
             "group": "项目资源",
             "pages": [
@@ -205,7 +170,92 @@
         ]
       },
       {
-        "tab": "English",
+        "language": "en",
+        "navbar": {
+          "links": [
+            {
+              "label": "Website",
+              "href": "https://superflow.me"
+            },
+            {
+              "label": "Whitepaper",
+              "href": "/SuperFlow_Whitepaper_EN_.pdf"
+            },
+            {
+              "label": "Risk Disclosure",
+              "href": "/en/legal/risk-disclosure"
+            }
+          ],
+          "primary": {
+            "type": "button",
+            "label": "Get Started",
+            "href": "/en/overview/introduction"
+          }
+        },
+        "footer": {
+          "socials": {
+            "website": "https://superflow.me",
+            "x": "https://x.com/SUPERFLOWINC/",
+            "telegram": "https://t.me/superflow003"
+          },
+          "links": [
+            {
+              "header": "Protocol",
+              "items": [
+                {
+                  "label": "System Architecture",
+                  "href": "/en/protocol/architecture"
+                },
+                {
+                  "label": "SUPER AGENT",
+                  "href": "/en/protocol/super-agent"
+                },
+                {
+                  "label": "Smart Routing",
+                  "href": "/en/protocol/smart-routing"
+                },
+                {
+                  "label": "Verification System",
+                  "href": "/en/protocol/verification-system"
+                }
+              ]
+            },
+            {
+              "header": "SUPER Token",
+              "items": [
+                {
+                  "label": "SUPER Token",
+                  "href": "/en/token/super-token"
+                },
+                {
+                  "label": "Token Utility",
+                  "href": "/en/token/utility"
+                },
+                {
+                  "label": "System Flywheel",
+                  "href": "/en/token/flywheel"
+                }
+              ]
+            },
+            {
+              "header": "Resources & Legal",
+              "items": [
+                {
+                  "label": "FAQ",
+                  "href": "/en/resources/faq"
+                },
+                {
+                  "label": "Disclaimer",
+                  "href": "/en/legal/disclaimer"
+                },
+                {
+                  "label": "Risk Disclosure",
+                  "href": "/en/legal/risk-disclosure"
+                }
+              ]
+            }
+          ]
+        },
         "groups": [
           {
             "group": "Start",

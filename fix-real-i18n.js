@@ -1,0 +1,321 @@
+const fs = require("fs");
+const path = require("path");
+
+const root = "C:\\superflow-docs";
+const docsFile = path.join(root, "docs.json");
+const backupFile = path.join(root, "docs.backup-before-real-i18n.json");
+
+const data = JSON.parse(fs.readFileSync(docsFile, "utf8"));
+
+fs.writeFileSync(backupFile, JSON.stringify(data, null, 2), "utf8");
+
+// 删除旧的全局 navbar / footer，避免英文页夹杂中文按钮
+delete data.navbar;
+delete data.footer;
+
+// 官方语言切换结构
+data.navigation = {
+  languages: [
+    {
+      language: "zh",
+      default: true,
+      navbar: {
+        links: [
+          {
+            label: "官网",
+            href: "https://superflow.me"
+          },
+          {
+            label: "白皮书",
+            href: "/SuperFlow_Whitepaper_EN_.pdf"
+          },
+          {
+            label: "风险披露",
+            href: "/legal/risk-disclosure"
+          }
+        ],
+        primary: {
+          type: "button",
+          label: "开始了解",
+          href: "/overview/introduction"
+        }
+      },
+      footer: {
+        socials: {
+          website: "https://superflow.me",
+          x: "https://x.com/SUPERFLOWINC/",
+          telegram: "https://t.me/superflow003"
+        },
+        links: [
+          {
+            header: "协议",
+            items: [
+              {
+                label: "系统架构",
+                href: "/protocol/architecture"
+              },
+              {
+                label: "SUPER AGENT",
+                href: "/protocol/super-agent"
+              },
+              {
+                label: "智能路由",
+                href: "/protocol/smart-routing"
+              },
+              {
+                label: "凭证系统",
+                href: "/protocol/verification-system"
+              }
+            ]
+          },
+          {
+            header: "SUPER Token",
+            items: [
+              {
+                label: "SUPER Token",
+                href: "/token/super-token"
+              },
+              {
+                label: "代币用途",
+                href: "/token/utility"
+              },
+              {
+                label: "系统飞轮",
+                href: "/token/flywheel"
+              }
+            ]
+          },
+          {
+            header: "资源与法律",
+            items: [
+              {
+                label: "常见问题",
+                href: "/resources/faq"
+              },
+              {
+                label: "免责声明",
+                href: "/legal/disclaimer"
+              },
+              {
+                label: "风险披露",
+                href: "/legal/risk-disclosure"
+              }
+            ]
+          }
+        ]
+      },
+      groups: [
+        {
+          group: "SuperFlow Protocol",
+          pages: [
+            "index"
+          ]
+        },
+        {
+          group: "项目概述",
+          pages: [
+            "overview/introduction",
+            "overview/why-superflow",
+            "overview/system-philosophy"
+          ]
+        },
+        {
+          group: "核心架构",
+          pages: [
+            "protocol/architecture",
+            "protocol/super-agent",
+            "protocol/smart-routing",
+            "protocol/execution-layer"
+          ]
+        },
+        {
+          group: "收益与验证",
+          pages: [
+            "protocol/yield-system",
+            "protocol/risk-control",
+            "protocol/verification-system"
+          ]
+        },
+        {
+          group: "代币机制",
+          pages: [
+            "token/super-token",
+            "token/utility",
+            "token/buyback-burn",
+            "token/flywheel"
+          ]
+        },
+        {
+          group: "用户流程",
+          pages: [
+            "guide/create-account",
+            "guide/deposit",
+            "guide/activate-agent",
+            "guide/view-yield",
+            "guide/verify-records"
+          ]
+        },
+        {
+          group: "项目资源",
+          pages: [
+            "resources/faq",
+            "resources/brand-assets"
+          ]
+        },
+        {
+          group: "法律与风险",
+          pages: [
+            "legal/disclaimer",
+            "legal/risk-disclosure"
+          ]
+        }
+      ]
+    },
+    {
+      language: "en",
+      navbar: {
+        links: [
+          {
+            label: "Website",
+            href: "https://superflow.me"
+          },
+          {
+            label: "Whitepaper",
+            href: "/SuperFlow_Whitepaper_EN_.pdf"
+          },
+          {
+            label: "Risk Disclosure",
+            href: "/en/legal/risk-disclosure"
+          }
+        ],
+        primary: {
+          type: "button",
+          label: "Get Started",
+          href: "/en/overview/introduction"
+        }
+      },
+      footer: {
+        socials: {
+          website: "https://superflow.me",
+          x: "https://x.com/SUPERFLOWINC/",
+          telegram: "https://t.me/superflow003"
+        },
+        links: [
+          {
+            header: "Protocol",
+            items: [
+              {
+                label: "System Architecture",
+                href: "/en/protocol/architecture"
+              },
+              {
+                label: "SUPER AGENT",
+                href: "/en/protocol/super-agent"
+              },
+              {
+                label: "Smart Routing",
+                href: "/en/protocol/smart-routing"
+              },
+              {
+                label: "Verification System",
+                href: "/en/protocol/verification-system"
+              }
+            ]
+          },
+          {
+            header: "SUPER Token",
+            items: [
+              {
+                label: "SUPER Token",
+                href: "/en/token/super-token"
+              },
+              {
+                label: "Token Utility",
+                href: "/en/token/utility"
+              },
+              {
+                label: "System Flywheel",
+                href: "/en/token/flywheel"
+              }
+            ]
+          },
+          {
+            header: "Resources & Legal",
+            items: [
+              {
+                label: "FAQ",
+                href: "/en/resources/faq"
+              },
+              {
+                label: "Disclaimer",
+                href: "/en/legal/disclaimer"
+              },
+              {
+                label: "Risk Disclosure",
+                href: "/en/legal/risk-disclosure"
+              }
+            ]
+          }
+        ]
+      },
+      groups: [
+        {
+          group: "Start",
+          pages: [
+            "en",
+            "en/overview/introduction",
+            "en/overview/why-superflow",
+            "en/overview/system-philosophy"
+          ]
+        },
+        {
+          group: "Protocol",
+          pages: [
+            "en/protocol/architecture",
+            "en/protocol/super-agent",
+            "en/protocol/smart-routing",
+            "en/protocol/execution-layer",
+            "en/protocol/yield-system",
+            "en/protocol/risk-control",
+            "en/protocol/verification-system"
+          ]
+        },
+        {
+          group: "SUPER Token",
+          pages: [
+            "en/token/super-token",
+            "en/token/utility",
+            "en/token/buyback-burn",
+            "en/token/flywheel"
+          ]
+        },
+        {
+          group: "User Guide",
+          pages: [
+            "en/guide/create-account",
+            "en/guide/deposit",
+            "en/guide/activate-agent",
+            "en/guide/view-yield",
+            "en/guide/verify-records"
+          ]
+        },
+        {
+          group: "Resources & Legal",
+          pages: [
+            "en/resources/faq",
+            "en/resources/brand-assets",
+            "en/legal/disclaimer",
+            "en/legal/risk-disclosure"
+          ]
+        }
+      ]
+    }
+  ]
+};
+
+fs.writeFileSync(docsFile, JSON.stringify(data, null, 2), "utf8");
+
+console.log("Done. Real Mintlify i18n navigation has been configured.");
+console.log("Chinese: /");
+console.log("English: /en");
+console.log("Backup saved:", backupFile);

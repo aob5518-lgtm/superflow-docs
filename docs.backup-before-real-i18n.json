@@ -1,0 +1,263 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "mint",
+  "name": "SuperFlow Docs",
+  "colors": {
+    "primary": "#0A5CFF",
+    "light": "#EAF3FF",
+    "dark": "#061A33"
+  },
+  "favicon": "/favicon.svg",
+  "logo": {
+    "light": "/images/logo.png",
+    "dark": "/images/logo.png"
+  },
+  "navbar": {
+    "links": [
+      {
+        "label": "官网",
+        "href": "https://superflow.me"
+      },
+      {
+        "label": "白皮书",
+        "href": "/overview/introduction"
+      },
+      {
+        "label": "风险披露",
+        "href": "/legal/risk-disclosure"
+      },
+      {
+        "label": "中文",
+        "href": "/"
+      },
+      {
+        "label": "EN",
+        "href": "/en"
+      }
+    ],
+    "primary": {
+      "type": "button",
+      "label": "开始了解",
+      "href": "/overview/introduction"
+    }
+  },
+  "footer": {
+    "socials": {
+      "website": "https://superflow.me",
+      "x": "https://x.com/SUPERFLOWINC/",
+      "telegram": "https://t.me/superflow003"
+    },
+    "links": [
+      {
+        "header": "Protocol",
+        "items": [
+          {
+            "label": "系统架构",
+            "href": "/protocol/architecture"
+          },
+          {
+            "label": "SUPER AGENT",
+            "href": "/protocol/super-agent"
+          },
+          {
+            "label": "智能路由",
+            "href": "/protocol/smart-routing"
+          },
+          {
+            "label": "凭证系统",
+            "href": "/protocol/verification-system"
+          }
+        ]
+      },
+      {
+        "header": "SUPER Token",
+        "items": [
+          {
+            "label": "SUPER Token",
+            "href": "/token/super-token"
+          },
+          {
+            "label": "代币用途",
+            "href": "/token/utility"
+          },
+          {
+            "label": "回购销毁",
+            "href": "/token/buyback-burn"
+          },
+          {
+            "label": "系统飞轮",
+            "href": "/token/flywheel"
+          }
+        ]
+      },
+      {
+        "header": "Resources",
+        "items": [
+          {
+            "label": "常见问题",
+            "href": "/resources/faq"
+          },
+          {
+            "label": "品牌资产",
+            "href": "/resources/brand-assets"
+          },
+          {
+            "label": "免责声明",
+            "href": "/legal/disclaimer"
+          },
+          {
+            "label": "风险披露",
+            "href": "/legal/risk-disclosure"
+          }
+        ]
+      }
+    ]
+  },
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "开始",
+        "groups": [
+          {
+            "group": "SuperFlow Protocol",
+            "pages": [
+              "index"
+            ]
+          },
+          {
+            "group": "项目概述",
+            "pages": [
+              "overview/introduction",
+              "overview/why-superflow",
+              "overview/system-philosophy"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "协议",
+        "groups": [
+          {
+            "group": "核心架构",
+            "pages": [
+              "protocol/architecture",
+              "protocol/super-agent",
+              "protocol/smart-routing",
+              "protocol/execution-layer"
+            ]
+          },
+          {
+            "group": "收益与验证",
+            "pages": [
+              "protocol/yield-system",
+              "protocol/risk-control",
+              "protocol/verification-system"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "SUPER Token",
+        "groups": [
+          {
+            "group": "代币机制",
+            "pages": [
+              "token/super-token",
+              "token/utility",
+              "token/buyback-burn",
+              "token/flywheel"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "使用指南",
+        "groups": [
+          {
+            "group": "用户流程",
+            "pages": [
+              "guide/create-account",
+              "guide/deposit",
+              "guide/activate-agent",
+              "guide/view-yield",
+              "guide/verify-records"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "资源与法律",
+        "groups": [
+          {
+            "group": "项目资源",
+            "pages": [
+              "resources/faq",
+              "resources/brand-assets"
+            ]
+          },
+          {
+            "group": "法律与风险",
+            "pages": [
+              "legal/disclaimer",
+              "legal/risk-disclosure"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "English",
+        "groups": [
+          {
+            "group": "Start",
+            "pages": [
+              "en",
+              "en/overview/introduction",
+              "en/overview/why-superflow",
+              "en/overview/system-philosophy"
+            ]
+          },
+          {
+            "group": "Protocol",
+            "pages": [
+              "en/protocol/architecture",
+              "en/protocol/super-agent",
+              "en/protocol/smart-routing",
+              "en/protocol/execution-layer",
+              "en/protocol/yield-system",
+              "en/protocol/risk-control",
+              "en/protocol/verification-system"
+            ]
+          },
+          {
+            "group": "SUPER Token",
+            "pages": [
+              "en/token/super-token",
+              "en/token/utility",
+              "en/token/buyback-burn",
+              "en/token/flywheel"
+            ]
+          },
+          {
+            "group": "User Guide",
+            "pages": [
+              "en/guide/create-account",
+              "en/guide/deposit",
+              "en/guide/activate-agent",
+              "en/guide/view-yield",
+              "en/guide/verify-records"
+            ]
+          },
+          {
+            "group": "Resources & Legal",
+            "pages": [
+              "en/resources/faq",
+              "en/resources/brand-assets",
+              "en/legal/disclaimer",
+              "en/legal/risk-disclosure"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
