@@ -24,9 +24,9 @@
               "href": "https://superflow.me"
             },
             {
-              "label": "白皮书",
-              "href": "/SuperFlow_Whitepaper_EN_.pdf"
-            },
+  "label": "白皮书",
+  "href": "/SuperFlow_Whitepaper_EN_.pdf"
+},
             {
               "label": "风险披露",
               "href": "/legal/risk-disclosure"
@@ -177,10 +177,10 @@
               "label": "Website",
               "href": "https://superflow.me"
             },
-            {
-              "label": "Whitepaper",
-              "href": "/SuperFlow_Whitepaper_EN_.pdf"
-            },
+           {
+  "label": "Whitepaper",
+  "href": "/SuperFlow_Whitepaper_EN_.pdf"
+},
             {
               "label": "Risk Disclosure",
               "href": "/en/legal/risk-disclosure"
