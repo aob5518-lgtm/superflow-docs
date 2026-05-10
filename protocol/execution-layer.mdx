@@ -24,11 +24,11 @@ Execution Layer = 订单执行 + 状态同步 + 结果反馈 + 异常处理
     将交易意图转化为真实订单，并提交到对应交易执行环境。
   </Card>
 
-  <Card title="状态同步" icon="activity">
+  <Card title="状态同步" icon="chart-line">
     持续同步订单状态、成交状态、仓位状态与账户状态。
   </Card>
 
-  <Card title="结果反馈" icon="workflow">
+  <Card title="结果反馈" icon="route">
     将执行结果反馈给 SUPER AGENT、收益系统与凭证系统。
   </Card>
 
@@ -126,7 +126,7 @@ Execution Layer 会识别并记录不同订单状态。
 它会反馈到 SuperFlow 的多个系统模块：
 
 <CardGroup cols={2}>
-  <Card title="反馈给 SUPER AGENT" icon="bot">
+  <Card title="反馈给 SUPER AGENT" icon="brain">
     用于更新决策状态、账户状态与风险判断。
   </Card>
 
@@ -138,7 +138,7 @@ Execution Layer 会识别并记录不同订单状态。
     用于生成交易凭证、订单记录与可追溯信息。
   </Card>
 
-  <Card title="反馈给用户界面" icon="activity">
+  <Card title="反馈给用户界面" icon="chart-line">
     用于展示交易状态、账户变化、收益记录与执行结果。
   </Card>
 </CardGroup>
@@ -150,11 +150,11 @@ Execution Layer 会识别并记录不同订单状态。
 Execution Layer 会处理以下情况：
 
 <CardGroup cols={2}>
-  <Card title="余额不足" icon="wallet">
+  <Card title="余额不足" icon="zap">
     当账户可用余额或保证金不足时，系统阻止执行。
   </Card>
 
-  <Card title="订单过小" icon="wallet">
+  <Card title="订单过小" icon="zap">
     当订单数量低于平台最小限制时，系统阻止执行。
   </Card>
 
@@ -162,7 +162,7 @@ Execution Layer 会处理以下情况：
     当平台 API、网络连接或订单反馈异常时，系统记录并保护。
   </Card>
 
-  <Card title="风险触发" icon="shield">
+  <Card title="风险触发" icon="zap">
     当账户风险、极端行情或系统风控触发时，系统暂停或拒绝执行。
   </Card>
 </CardGroup>

@@ -30,19 +30,19 @@ Smart Routing = 成本优化 + 路径选择 + 执行保护 + 状态反馈
 如果没有智能路由，系统可能会遇到这些问题：
 
 <CardGroup cols={2}>
-  <Card title="滑点过高" icon="chart-line">
+  <Card title="滑点过高" icon="zap">
     市场深度不足时，订单可能以更差价格成交。
   </Card>
 
-  <Card title="手续费不优" icon="receipt">
+  <Card title="手续费不优" icon="zap">
     不同平台和执行路径的手续费结构不同，会影响最终收益。
   </Card>
 
-  <Card title="成交失败" icon="shield">
+  <Card title="成交失败" icon="zap">
     当平台状态异常、余额不足或限制触发时，订单可能失败。
   </Card>
 
-  <Card title="风险不可控" icon="shield">
+  <Card title="风险不可控" icon="zap">
     单一路径执行容易忽略账户状态、仓位状态与极端行情风险。
   </Card>
 </CardGroup>
@@ -136,11 +136,11 @@ Smart Routing 的价值，不只是让订单成交，而是提升执行质量。
 Smart Routing 会识别常见失败原因：
 
 <CardGroup cols={2}>
-  <Card title="余额不足" icon="wallet">
+  <Card title="余额不足" icon="zap">
     当可用余额或保证金不足时，系统阻止或调整执行。
   </Card>
 
-  <Card title="数量过小" icon="wallet">
+  <Card title="数量过小" icon="zap">
   当订单数量低于平台最小下单限制时，系统阻止执行。
 </Card>
 
@@ -148,7 +148,7 @@ Smart Routing 会识别常见失败原因：
     当平台 API、连接或订单反馈异常时，系统记录并保护。
   </Card>
 
-  <Card title="风险触发" icon="shield">
+  <Card title="风险触发" icon="zap">
     当账户风险、连续亏损或极端行情触发时，系统可以暂停执行。
   </Card>
 </CardGroup>
