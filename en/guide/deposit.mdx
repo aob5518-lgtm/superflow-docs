@@ -1,0 +1,212 @@
+---
+title: "充值资产 Deposit Assets"
+description: "如何向 SuperFlow Protocol 充值资产，并让资金进入系统状态管理。"
+---
+
+# Deposit Assets
+
+Deposit Assets 是用户将资产进入 SuperFlow Protocol 的过程。
+
+在 SuperFlow 中，充值不是简单地把资产放进账户余额，而是让资金进入系统状态管理，并成为可被 Capital System 识别、记录和调度的资源。
+
+## 核心定义
+
+Deposit = 资产进入账户 + 资金进入状态管理 + 系统识别可调度资源
+
+用户完成充值后，资金才可以连接 SUPER AGENT、收益系统、风控系统与凭证系统。
+
+## 支持的资产类型
+
+SuperFlow 可围绕主流资产与系统资产进行设计。
+
+常见支持资产包括：
+
+| 资产 | 说明 |
+| --- | --- |
+| BTC | 主流加密资产，可用于系统参与与资金配置 |
+| ETH | 主流链上资产，可用于系统参与与生态扩展 |
+| USDT | 稳定币资产，常用于交易资金与结算 |
+| USDC | 稳定币资产，常用于交易资金与结算 |
+| SUPER | SuperFlow Protocol 的系统代币，用于权限、行为与系统参与 |
+
+## 充值流程
+
+<Steps>
+  <Step title="进入账户中心">
+    用户登录 SuperFlow 后，进入 Dashboard 或 Assets 页面。
+  </Step>
+
+  <Step title="选择充值资产">
+    用户选择需要充值的资产类型，例如 BTC、ETH、USDT、USDC 或 SUPER。
+  </Step>
+
+  <Step title="获取充值地址">
+    系统生成对应资产的充值地址，用户需要确认网络类型和资产类型一致。
+  </Step>
+
+  <Step title="从外部钱包或平台转入">
+    用户从钱包、交易平台或其他地址向 SuperFlow 指定地址转入资产。
+  </Step>
+
+  <Step title="等待链上或平台确认">
+    系统根据资产类型、网络状态和确认要求，等待充值到账。
+  </Step>
+
+  <Step title="资金进入账户状态">
+    充值确认后，资产会显示在用户账户中，并进入 Capital System 状态管理。
+  </Step>
+</Steps>
+
+## 充值后资金会发生什么？
+
+充值成功后，资产不会只是一个静态余额。
+
+Capital System 会识别并记录资金状态：
+
+<CardGroup cols={2}>
+  <Card title="资产类型" icon="zap">
+    系统识别用户充值的是 BTC、ETH、USDT、USDC、SUPER 或其他支持资产。
+  </Card>
+
+  <Card title="可用余额" icon="zap">
+    系统记录用户可用资金、冻结资金、参与资金和可提现资金。
+  </Card>
+
+  <Card title="参与状态" icon="zap">
+    系统识别资金是否进入某个周期、权限、AGENT 或收益机制。
+  </Card>
+
+  <Card title="风险状态" icon="zap">
+    系统根据账户、资金和交易状态，对资金风险进行持续监控。
+  </Card>
+</CardGroup>
+
+## 充值注意事项
+
+充值前必须确认以下信息：
+
+| 检查项 | 说明 |
+| --- | --- |
+| Asset Type | 确认充值资产是否为系统支持资产 |
+| Network | 确认充值网络是否正确 |
+| Address | 确认充值地址是否完整、正确 |
+| Minimum Deposit | 确认是否满足最低充值数量 |
+| Confirmation Time | 不同网络确认时间不同 |
+| Memo / Tag | 如果资产需要 Memo 或 Tag，必须正确填写 |
+| Official URL | 确认访问的是 SuperFlow 官方地址 |
+
+## 重要提醒
+
+如果用户选择错误网络、错误资产或错误地址，可能导致资产无法到账，甚至永久丢失。
+
+充值前应仔细核对：
+
+```text
+资产类型
+网络类型
+充值地址
+Memo / Tag
+最小充值数量
+官方页面地址
+```
+
+## 充值与 Capital System 的关系
+
+Capital System 是 SuperFlow 的资金系统。
+
+当资产充值到账后，Capital System 会将资金从“外部资产”转化为“系统可识别状态”。
+
+```text
+External Wallet
+  ↓
+Deposit Address
+  ↓
+Account Balance
+  ↓
+Capital System
+  ↓
+Available Capital
+  ↓
+SUPER AGENT Conditions
+```
+
+这意味着资金进入系统后，会成为 SUPER AGENT 判断账户状态、资金状态和风险状态的重要输入。
+
+## 充值与 SUPER AGENT 的关系
+
+SUPER AGENT 不是直接控制用户钱包，而是基于系统账户中的可用资金、权限状态和风险状态进行调度。
+
+充值完成后，SUPER AGENT 可以读取：
+
+- 可用资金
+- 资产类型
+- 账户权限
+- 参与周期
+- 风险状态
+- 可执行条件
+
+然后系统才可以判断是否具备执行交易的基础条件。
+
+## 充值与收益系统的关系
+
+Yield System 会基于用户资金状态记录收益。
+
+充值资金可能影响：
+
+<CardGroup cols={2}>
+  <Card title="参与本金" icon="zap">
+    用户参与系统的资金规模会影响收益记录基础。
+  </Card>
+
+  <Card title="参与周期" icon="zap">
+    资金进入系统的时间和周期会影响收益统计。
+  </Card>
+
+  <Card title="权限权重" icon="zap">
+    账户权限、SUPER Token 状态和 AGENT 状态可能影响参与深度。
+  </Card>
+
+  <Card title="收益记录" icon="chart-line">
+    系统会记录收益、收益率、历史收益和凭证数据。
+  </Card>
+</CardGroup>
+
+## 充值状态说明
+
+充值过程中，用户可能看到不同状态：
+
+| 状态 | 说明 |
+| --- | --- |
+| Pending | 充值已提交，等待确认 |
+| Confirming | 正在等待链上或系统确认 |
+| Completed | 充值成功，资产已到账 |
+| Failed | 充值失败或未被系统识别 |
+| Reviewing | 充值需要人工或系统进一步检查 |
+| Frozen | 资产暂时冻结，可能与风控或规则有关 |
+
+## 安全建议
+
+充值前后，用户应注意：
+
+- 不要向非官方地址转账
+- 不要相信私聊客服提供的临时地址
+- 不要将验证码、私钥、助记词告诉任何人
+- 大额充值前可先进行小额测试
+- 充值后保存交易哈希或转账记录
+- 发现异常及时联系官方支持渠道
+
+## 风险说明
+
+充值资产不代表收益保证。
+
+充值只是用户资金进入 SuperFlow 系统的过程。
+
+真实交易仍然存在市场波动、执行失败、滑点、流动性不足、平台异常、系统风险和本金亏损风险。
+
+用户应在理解机制和风险后，再决定是否参与。
+
+## 核心结论
+
+Deposit Assets 是用户资金进入 SuperFlow Protocol 的关键步骤。
+
+充值成功后，资产不只是账户余额，而是进入 Capital System，被系统识别为可管理、可记录、可风控、可参与交易能力系统的资金状态。

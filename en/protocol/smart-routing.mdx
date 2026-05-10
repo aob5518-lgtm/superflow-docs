@@ -1,0 +1,160 @@
+---
+title: "智能路由 Smart Routing"
+description: "SuperFlow Protocol 的智能路由系统。"
+---
+
+# Smart Routing
+
+<Frame>
+  <img src="/images/smart-routing.svg" alt="SuperFlow Smart Routing" />
+</Frame>
+
+Smart Routing 是 SuperFlow Protocol 的智能路由系统。
+
+它负责在多平台、多路径、多成本环境中，为交易意图选择更合适的执行路径。
+
+在 SuperFlow 中，交易不是简单地下单，而是一个经过成本判断、风险判断、路径判断与执行反馈的系统过程。
+
+## 核心定义
+
+Smart Routing = 成本优化 + 路径选择 + 执行保护 + 状态反馈
+
+它的目标，是让交易执行从“单点下单”升级为“系统化执行优化”。
+
+## 为什么需要 Smart Routing？
+
+真实交易环境并不是静态的。
+
+不同平台、不同交易对、不同订单深度、不同手续费、不同滑点、不同 API 状态，都会影响最终执行质量。
+
+如果没有智能路由，系统可能会遇到这些问题：
+
+<CardGroup cols={2}>
+  <Card title="滑点过高" icon="zap">
+    市场深度不足时，订单可能以更差价格成交。
+  </Card>
+
+  <Card title="手续费不优" icon="zap">
+    不同平台和执行路径的手续费结构不同，会影响最终收益。
+  </Card>
+
+  <Card title="成交失败" icon="zap">
+    当平台状态异常、余额不足或限制触发时，订单可能失败。
+  </Card>
+
+  <Card title="风险不可控" icon="zap">
+    单一路径执行容易忽略账户状态、仓位状态与极端行情风险。
+  </Card>
+</CardGroup>
+
+## Smart Routing 判断什么？
+
+Smart Routing 不只是选择平台，它判断的是一整套执行条件。
+
+| 判断维度 | 说明 |
+| --- | --- |
+| Cost | 手续费、滑点、资金占用与综合执行成本 |
+| Depth | 市场深度、订单簿厚度与可成交数量 |
+| Speed | API 响应速度、订单确认速度与成交速度 |
+| Risk | 账户风险、仓位风险、行情风险与平台风险 |
+| Availability | 平台可用性、余额可用性、保证金状态与交易限制 |
+| Feedback | 下单结果、成交反馈、失败原因与状态同步 |
+
+## 路由流程
+
+<Steps>
+  <Step title="接收交易意图">
+    SUPER AGENT 生成交易意图后，不会直接下单，而是先进入 Smart Routing。
+  </Step>
+
+  <Step title="检查账户与资金状态">
+    系统检查可用余额、保证金、仓位、权限与风险状态。
+  </Step>
+
+  <Step title="比较执行路径">
+    Smart Routing 比较不同平台、不同路径、不同成本结构与不同市场深度。
+  </Step>
+
+  <Step title="选择执行方案">
+    系统选择更适合当前状态的执行路径，并将任务交给 Execution Layer。
+  </Step>
+
+  <Step title="处理执行反馈">
+    如果订单成功，系统同步结果；如果失败，系统记录原因并进入保护或重试逻辑。
+  </Step>
+</Steps>
+
+## 路由模型
+
+```text
+SUPER AGENT
+  ↓
+Trade Intent
+  ↓
+Smart Routing
+  ├─ Cost Check
+  ├─ Depth Check
+  ├─ Speed Check
+  ├─ Risk Check
+  ├─ Availability Check
+  └─ Feedback Check
+  ↓
+Execution Layer
+```
+
+## Smart Routing 与 SUPER AGENT 的关系
+
+SUPER AGENT 负责生成交易意图。
+
+Smart Routing 负责判断交易意图应该如何执行。
+
+两者的关系可以理解为：
+
+```text
+SUPER AGENT 决定：是否交易、交易什么、交易逻辑是什么
+Smart Routing 决定：在哪里执行、怎么执行、以什么成本执行
+Execution Layer 负责：把执行方案变成真实订单
+```
+
+## 执行路径优化
+
+Smart Routing 的价值，不只是让订单成交，而是提升执行质量。
+
+执行质量包括：
+
+- 更低滑点
+- 更合理手续费
+- 更高成交稳定性
+- 更低失败率
+- 更强风险保护
+- 更清晰的状态反馈
+
+## 失败处理机制
+
+真实交易中，订单失败是必须考虑的情况。
+
+Smart Routing 会识别常见失败原因：
+
+<CardGroup cols={2}>
+  <Card title="余额不足" icon="zap">
+    当可用余额或保证金不足时，系统阻止或调整执行。
+  </Card>
+
+  <Card title="数量过小" icon="zap">
+  当订单数量低于平台最小下单限制时，系统阻止执行。
+</Card>
+
+  <Card title="平台异常" icon="zap">
+    当平台 API、连接或订单反馈异常时，系统记录并保护。
+  </Card>
+
+  <Card title="风险触发" icon="zap">
+    当账户风险、连续亏损或极端行情触发时，系统可以暂停执行。
+  </Card>
+</CardGroup>
+
+## 核心结论
+
+Smart Routing 是 SuperFlow Protocol 的执行优化系统。
+
+它连接 SUPER AGENT 与 Execution Layer，让交易不再只是“发出订单”，而是一个经过成本、路径、风险与状态反馈优化的系统化执行过程。

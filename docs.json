@@ -25,6 +25,10 @@
       {
         "label": "风险披露",
         "href": "/legal/risk-disclosure"
+      },
+      {
+        "label": "EN",
+        "href": "/en"
       }
     ],
     "primary": {
@@ -192,6 +196,60 @@
             "pages": [
               "legal/disclaimer",
               "legal/risk-disclosure"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "English",
+        "groups": [
+          {
+            "group": "Start",
+            "pages": [
+              "en",
+              "en/overview/introduction",
+              "en/overview/why-superflow",
+              "en/overview/system-philosophy"
+            ]
+          },
+          {
+            "group": "Protocol",
+            "pages": [
+              "en/protocol/architecture",
+              "en/protocol/super-agent",
+              "en/protocol/smart-routing",
+              "en/protocol/execution-layer",
+              "en/protocol/yield-system",
+              "en/protocol/risk-control",
+              "en/protocol/verification-system"
+            ]
+          },
+          {
+            "group": "SUPER Token",
+            "pages": [
+              "en/token/super-token",
+              "en/token/utility",
+              "en/token/buyback-burn",
+              "en/token/flywheel"
+            ]
+          },
+          {
+            "group": "User Guide",
+            "pages": [
+              "en/guide/create-account",
+              "en/guide/deposit",
+              "en/guide/activate-agent",
+              "en/guide/view-yield",
+              "en/guide/verify-records"
+            ]
+          },
+          {
+            "group": "Resources & Legal",
+            "pages": [
+              "en/resources/faq",
+              "en/resources/brand-assets",
+              "en/legal/disclaimer",
+              "en/legal/risk-disclosure"
             ]
           }
         ]

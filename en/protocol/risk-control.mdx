@@ -1,0 +1,188 @@
+---
+title: "风控系统 Risk Control"
+description: "SuperFlow Protocol 的系统化风控机制。"
+---
+
+# Risk Control
+
+Risk Control 是 SuperFlow Protocol 的系统化风控机制。
+
+它不是单独的止损按钮，也不是简单的风险提示，而是贯穿账户系统、资金系统、SUPER AGENT、Smart Routing、Execution Layer 与 Yield System 的风险控制体系。
+
+在 SuperFlow 中，风控不是交易完成后的补救，而是交易执行之前、执行之中和执行之后都持续存在的系统能力。
+
+## 核心定义
+
+Risk Control = 风险识别 + 风险限制 + 执行保护 + 状态监控
+
+它的目标，是让系统在面对市场波动、账户异常、执行失败和极端行情时，能够主动识别风险，并限制不适合执行的行为。
+
+## 为什么需要风控系统？
+
+交易系统的核心不是只寻找收益机会。
+
+如果没有风控，系统可能会遇到：
+
+<CardGroup cols={2}>
+  <Card title="仓位失控" icon="wallet">
+    当仓位规模超过账户承受范围时，风险会快速放大。
+  </Card>
+
+  <Card title="连续亏损" icon="shield">
+    当策略或市场环境失效时，连续亏损可能持续扩大。
+  </Card>
+
+  <Card title="执行异常" icon="zap">
+    当平台连接、订单反馈或状态同步异常时，系统可能产生错误执行。
+  </Card>
+
+  <Card title="极端行情" icon="shield">
+    在剧烈波动、流动性不足或异常行情中，普通执行逻辑可能失效。
+  </Card>
+</CardGroup>
+
+## 风控覆盖哪些层级？
+
+Risk Control 覆盖 SuperFlow 的多个系统层级。
+
+| 层级 | 风控内容 |
+| --- | --- |
+| Account System | 用户账户状态、权限状态、账户异常与登录安全 |
+| Capital System | 可用资金、资金占用、保证金状态与资金效率 |
+| SUPER AGENT | 决策风险、策略状态、市场判断与执行意图 |
+| Smart Routing | 路由风险、滑点、深度、成本与路径可用性 |
+| Execution Layer | 订单失败、成交异常、平台异常与状态同步 |
+| Yield System | 收益波动、回撤、盈亏记录与周期风险 |
+| Verification System | 凭证数据完整性、交易记录一致性与可追溯性 |
+
+## 风控流程
+
+<Steps>
+  <Step title="识别风险状态">
+    系统持续读取账户、资金、市场、路由、订单与执行环境状态。
+  </Step>
+
+  <Step title="判断是否适合执行">
+    SUPER AGENT 与 Risk Control 会判断当前状态是否适合继续生成或执行交易意图。
+  </Step>
+
+  <Step title="限制高风险行为">
+    当仓位、亏损、波动、平台状态或执行条件触发限制时，系统可以减少、暂停或拒绝执行。
+  </Step>
+
+  <Step title="进入执行保护">
+    如果订单执行过程中出现异常，Execution Layer 会记录原因，并进入保护逻辑。
+  </Step>
+
+  <Step title="同步风险结果">
+    风控结果会反馈给 SUPER AGENT、Yield System、Verification System 与用户界面。
+  </Step>
+</Steps>
+
+## 风控判断模型
+
+```text
+Account State
+  +
+Capital State
+  +
+Market State
+  +
+Route State
+  +
+Execution State
+  ↓
+Risk Control
+  ↓
+Allow / Adjust / Pause / Reject
+```
+
+## 关键风控能力
+
+<CardGroup cols={2}>
+  <Card title="仓位控制" icon="wallet">
+    根据账户余额、保证金、风险敞口与市场状态限制仓位规模。
+  </Card>
+
+  <Card title="亏损控制" icon="shield">
+    对连续亏损、周期回撤与异常亏损进行识别和限制。
+  </Card>
+
+  <Card title="执行保护" icon="lock">
+    当订单状态、平台连接或 API 反馈异常时，阻止错误执行。
+  </Card>
+
+  <Card title="状态监控" icon="chart-line">
+    持续监控账户、资金、订单、市场与系统运行状态。
+  </Card>
+</CardGroup>
+
+## 常见风险类型
+
+| 风险类型 | 说明 |
+| --- | --- |
+| Market Risk | 市场波动、方向错误、流动性不足与极端行情 |
+| Execution Risk | 订单失败、部分成交、滑点过高与平台异常 |
+| Capital Risk | 可用资金不足、保证金不足、资金占用过高 |
+| Account Risk | 账户状态异常、权限不足、配置错误 |
+| Strategy Risk | 策略失效、连续亏损、参数不适合当前市场 |
+| System Risk | API 异常、网络异常、状态同步失败、数据延迟 |
+
+## 风控不是消除风险
+
+Risk Control 的目标不是让交易没有风险。
+
+真实市场交易永远存在风险，包括价格波动、流动性变化、平台异常、执行失败、策略失效和本金亏损。
+
+Risk Control 的目标，是让风险能够被识别、被限制、被记录和被反馈。
+
+这意味着 SuperFlow 不应该把自己表达为“无风险收益系统”，而应该表达为：
+
+> 一个具备风险识别、风险限制、执行保护与结果反馈能力的 AI 交易操作系统。
+
+## 与 SUPER AGENT 的关系
+
+SUPER AGENT 负责生成交易意图，但交易意图并不一定会被执行。
+
+Risk Control 会参与判断：
+
+```text
+SUPER AGENT 生成交易意图
+  ↓
+Risk Control 检查风险状态
+  ↓
+Smart Routing 检查执行路径
+  ↓
+Execution Layer 执行或拒绝
+```
+
+当风险过高时，系统可以选择：
+
+- 减少执行规模
+- 暂停执行
+- 拒绝执行
+- 等待状态恢复
+- 记录异常原因
+
+## 与收益系统的关系
+
+收益和风险必须同时被记录。
+
+如果只展示收益，不展示风险，系统就不完整。
+
+Yield System 应该与 Risk Control 共同形成一套完整记录：
+
+| 数据 | 作用 |
+| --- | --- |
+| 收益结果 | 展示交易结果 |
+| 回撤状态 | 识别周期风险 |
+| 连续亏损 | 判断策略或市场状态 |
+| 执行失败 | 记录系统异常 |
+| 风控触发 | 说明系统为何暂停或拒绝执行 |
+| 风险说明 | 帮助用户理解真实市场风险 |
+
+## 核心结论
+
+Risk Control 是 SuperFlow Protocol 的系统安全层。
+
+它让 SuperFlow 不只是寻找交易机会，也能够识别不适合执行的环境，并通过系统化方式控制仓位、亏损、执行异常与极端行情风险。
