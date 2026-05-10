@@ -27,6 +27,10 @@
         "href": "/legal/risk-disclosure"
       },
       {
+        "label": "中文",
+        "href": "/"
+      },
+      {
         "label": "EN",
         "href": "/en"
       }
