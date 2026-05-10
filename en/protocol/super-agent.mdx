@@ -1,6 +1,6 @@
 ---
 title: "SUPER AGENT"
-description: "SuperFlow Protocol 的核心 AI 交易执行体。"
+description: "The core AI trading execution body of SuperFlow Protocol."
 ---
 
 # SUPER AGENT
@@ -11,178 +11,40 @@ description: "SuperFlow Protocol 的核心 AI 交易执行体。"
   <img src="/images/super-agent-system.svg" alt="SUPER AGENT Mechanism" />
 </Frame>
 
-SUPER AGENT 是 SuperFlow Protocol 的核心 AI 交易执行体。
-它不是一个普通交易机器人，也不是一个单一策略工具，而是一个由决策引擎、执行调度器与风险控制系统共同组成的 AI 交易能力系统。
+SUPER AGENT is the core AI trading execution body of SuperFlow Protocol.
 
-## 核心定义
+It is not a simple signal tool, not a price-prediction bot, and not a fixed-yield machine.
 
-SUPER AGENT = 决策引擎 + 执行调度器 + 风控系统
+## Core Definition
 
-它的作用不是简单预测涨跌，而是将市场状态、账户状态、资金状态、风险状态与执行路径整合起来，形成一套可被系统调用的交易决策能力。
+SUPER AGENT = Decision Engine + Execution Scheduler + Risk-Control System
 
-## SUPER AGENT 负责什么？
+## Core Modules
 
 <CardGroup cols={3}>
   <Card title="Decision Engine" icon="brain">
-    分析市场状态、资金状态、账户状态、风险状态与执行条件。
+    Evaluates market state, account state, capital state, route state, and risk state.
   </Card>
 
   <Card title="Execution Scheduler" icon="route">
-    将交易意图转化为可执行任务，并协调智能路由与执行层。
+    Converts trading intent into executable tasks and connects routing and execution.
   </Card>
 
   <Card title="Risk Control" icon="shield">
-    对仓位、亏损、波动、异常行情、执行失败与系统状态进行控制。
+    Controls position exposure, abnormal volatility, execution failures, and drawdown.
   </Card>
 </CardGroup>
 
-## 它不是什么？
+## Decision Inputs
 
-SUPER AGENT 不是收益承诺机器。
-
-它不是简单的喊单工具，不是固定收益模型，也不是只依赖单一策略的交易机器人。
-
-SUPER AGENT 的本质，是 SuperFlow 系统中的 AI 决策与执行调度核心。
-
-它负责把复杂交易过程系统化，而不是向用户承诺某个固定结果。
-
-## 决策输入
-
-SUPER AGENT 在进行决策时，会同时关注多个维度。
-
-| 输入维度 | 说明 |
+| Input | Description |
 | --- | --- |
-| Market State | 市场价格、趋势、波动率、成交量与流动性状态 |
-| Account State | 用户账户余额、仓位、保证金、风险敞口与权限状态 |
-| Capital State | 可用资金、资金占用、资金效率与可调度额度 |
-| Route State | 不同交易路径的成本、速度、深度与失败率 |
-| Risk State | 回撤、连续亏损、极端行情、执行异常与系统风险 |
-| System State | 平台连接状态、订单反馈、API 状态与执行环境 |
+| Market State | Price, trend, volatility, volume, and liquidity |
+| Account State | Balance, position, margin, permission, and exposure |
+| Capital State | Available capital, capital cycle, and scheduling state |
+| Route State | Cost, depth, speed, and route availability |
+| Risk State | Drawdown, abnormal market conditions, and execution risk |
 
-## 工作流程
+## Conclusion
 
-<Steps>
-  <Step title="识别市场状态">
-    SUPER AGENT 首先识别当前市场环境，包括趋势、波动、流动性、交易深度与异常行情。
-  </Step>
-
-  <Step title="读取账户与资金状态">
-    系统读取用户账户余额、仓位、保证金、可用资金与风险敞口。
-  </Step>
-
-  <Step title="生成交易决策">
-    SUPER AGENT 根据市场状态、账户状态、资金状态和风险状态生成交易意图。
-  </Step>
-
-  <Step title="进入智能路由">
-    交易意图不会直接下单，而是进入 Smart Routing，由系统判断更优执行路径。
-  </Step>
-
-  <Step title="执行层完成交易">
-    Execution Layer 将交易意图转化为真实订单，并同步执行状态。
-  </Step>
-
-  <Step title="生成收益与凭证">
-    交易结果进入 Yield System 与 Verification System，形成收益记录和可验证凭证。
-  </Step>
-</Steps>
-
-## 决策逻辑模型
-
-```text
-Market State
-  +
-Account State
-  +
-Capital State
-  +
-Risk State
-  +
-Route State
-  ↓
-SUPER AGENT Decision Engine
-  ↓
-Execution Scheduler
-  ↓
-Smart Routing
-  ↓
-Execution Layer
-  ↓
-Yield & Verification
-```
-
-## SUPER AGENT 与用户的关系
-
-在传统交易模式中，用户需要自己完成所有判断：
-
-- 判断行情
-- 选择方向
-- 设置仓位
-- 控制风险
-- 处理下单
-- 复盘收益
-- 验证结果
-
-在 SuperFlow 中，用户不再直接面对所有复杂操作。
-
-SUPER AGENT 将这些过程系统化，让用户进入一个由系统执行、系统风控、系统验证的交易能力环境。
-
-## SUPER AGENT 与 Smart Routing 的关系
-
-SUPER AGENT 负责判断“是否应该执行”和“如何形成交易意图”。
-
-Smart Routing 负责判断“通过哪条路径执行更合适”。
-
-两者不是重复关系，而是上下游关系：
-
-```text
-SUPER AGENT = 决策与调度
-Smart Routing = 路径与成本优化
-Execution Layer = 真实订单执行
-```
-
-## SUPER AGENT 与收益系统的关系
-
-收益不是凭空产生的，也不是简单分配出来的。
-
-在 SuperFlow 中，收益来自真实市场行为，并由系统记录、计算和验证。
-
-SUPER AGENT 参与收益形成过程，但收益最终取决于：
-
-| 变量 | 说明 |
-| --- | --- |
-| Capital | 资金规模与可调度资金 |
-| Time | 资金参与时间与周期 |
-| Permission | 用户权限、等级与系统参与深度 |
-| Market Capability | 系统识别市场机会与执行机会的能力 |
-| Risk Control | 系统控制回撤、异常与执行失败的能力 |
-
-## 风控原则
-
-SUPER AGENT 的重要价值不是只寻找机会，也包括主动避免不适合执行的环境。
-
-<CardGroup cols={2}>
-  <Card title="仓位控制" icon="wallet">
-    根据账户状态与风险状态控制仓位规模。
-  </Card>
-
-  <Card title="亏损控制" icon="shield">
-    对连续亏损、异常波动与极端行情进行限制。
-  </Card>
-
-  <Card title="执行保护" icon="lock">
-    当平台状态、路由状态或订单反馈异常时，系统可以阻止执行。
-  </Card>
-
-  <Card title="状态监控" icon="chart-line">
-    持续监控账户、资金、订单、市场与系统运行状态。
-  </Card>
-</CardGroup>
-
-## 核心结论
-
-SUPER AGENT 不是一个单一交易机器人。
-
-它是 SuperFlow Protocol 的核心 AI 交易执行体，是连接用户资金、市场机会、智能路由、真实执行与收益验证的系统中枢。
-
-SuperFlow 通过 SUPER AGENT，将交易能力从个人经验升级为系统能力。
+SUPER AGENT turns market data, capital state, route conditions, and risk signals into executable trading capability.

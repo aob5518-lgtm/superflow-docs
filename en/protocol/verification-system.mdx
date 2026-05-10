@@ -1,6 +1,6 @@
 ---
-title: "凭证系统 Verification System"
-description: "SuperFlow Protocol 的交易凭证与收益验证系统。"
+title: "Verification System"
+description: "The trading voucher and yield verification system of SuperFlow Protocol."
 ---
 
 # Verification System
@@ -9,223 +9,26 @@ description: "SuperFlow Protocol 的交易凭证与收益验证系统。"
   <img src="/images/verification-system.svg" alt="SuperFlow Verification System" />
 </Frame>
 
-Verification System 是 SuperFlow Protocol 的交易凭证与收益验证系统。
+Verification System records, explains, and verifies execution results and yield sources.
 
-它负责记录、展示和验证 SuperFlow 中真实交易执行后的关键结果，包括订单信息、成交信息、收益结果、查询链接与凭证说明。
+## Core Definition
 
-在 SuperFlow 中，收益展示不能只是一串数字。系统需要让用户知道：这笔收益来自哪里、什么时候执行、以什么价格执行、在哪个平台执行、是否可以被核验。
-
-## 核心定义
-
-Verification System = 交易记录 + 收益凭证 + 查询入口 + 可追溯说明
-
-它的目标，是让交易结果和收益结果具备更强的透明度、可解释性和可验证性。
-
-## 为什么需要 Verification System？
-
-在很多交易产品中，用户只能看到收益数字，却很难判断收益是否来自真实交易。
-
-SuperFlow 需要解决的不只是“展示收益”，而是让收益具备可追溯基础。
+Verification System = Trading Record + Yield Voucher + Query Path + Verifiable Proof
 
 <CardGroup cols={2}>
-  <Card title="证明真实交易" icon="shield-check">
-    通过订单号、成交号、时间、价格与查询链接，增强交易结果可信度。
+  <Card title="Prove Real Trading" icon="shield-check">
+    Uses order ID, trade ID, time, price, and query path to support verification.
   </Card>
 
-  <Card title="解释收益来源" icon="chart-line">
-    让用户知道收益来自哪次交易、哪个市场、哪个执行路径与哪个结果。
+  <Card title="Explain Yield Source" icon="chart-line">
+    Shows asset, direction, entry price, exit price, profit and loss, and yield rate.
   </Card>
 
-  <Card title="连接合作方" icon="shield-check">
-    为第三方平台、合作方、代理系统或客户后台提供可读取的凭证数据。
+  <Card title="Connect Partners" icon="shield-check">
+    Provides structured voucher data for partner systems and public APIs.
   </Card>
 
-  <Card title="减少信任成本" icon="lock">
-    通过结构化凭证降低用户理解成本和信任成本。
-  </Card>
-</CardGroup>
-
-## 凭证系统记录什么？
-
-Verification System 不只是记录收益金额。
-
-它应该记录一笔交易从执行到结果的核心信息。
-
-| 字段 | 说明 |
-| --- | --- |
-| Voucher ID | 系统内部凭证编号 |
-| Account | 用户账户或系统账户标识 |
-| Asset | 交易资产，例如 BTC、ETH、USDT、USDC、SUPER |
-| Side | 交易方向，例如 Long、Short、Buy、Sell |
-| Entry Price | 开仓价格或买入价格 |
-| Exit Price | 平仓价格或卖出价格 |
-| Size | 成交数量 |
-| PnL | 盈亏结果 |
-| Yield Rate | 收益率 |
-| Platform | 执行平台或执行路径 |
-| Order ID | 平台订单号 |
-| Trade ID | 平台成交号 |
-| Tx Hash | 链上交易哈希，如果适用 |
-| Verify Link | 查询链接或验证入口 |
-| Close Reason | 平仓原因或结束原因 |
-| Created At | 交易发生时间 |
-| Verified At | 凭证生成或同步时间 |
-
-## 凭证生成流程
-
-<Steps>
-  <Step title="Execution Layer 完成交易">
-    执行层完成真实订单提交、成交同步和结果反馈。
-  </Step>
-
-  <Step title="Yield System 计算收益">
-    收益系统根据交易结果、资金状态和周期状态计算收益。
-  </Step>
-
-  <Step title="Verification System 生成凭证">
-    凭证系统提取订单号、成交号、价格、数量、盈亏、时间与查询链接。
-  </Step>
-
-  <Step title="用户查看凭证">
-    用户可以在历史收益、交易记录或凭证查询入口查看对应信息。
-  </Step>
-
-  <Step title="第三方读取凭证">
-    合作方可以通过公开接口或授权接口读取结构化凭证数据。
-  </Step>
-</Steps>
-
-## 凭证数据模型
-
-```text
-Execution Result
-  ↓
-Yield Result
-  ↓
-Voucher Data
-  ├─ Order Info
-  ├─ Trade Info
-  ├─ Price Info
-  ├─ PnL Info
-  ├─ Platform Info
-  ├─ Verify Link
-  └─ Risk / Close Reason
-  ↓
-Verification Page / Public API
-```
-
-## 不同平台的验证方式
-
-不同执行平台支持的验证方式不同，Verification System 需要根据平台能力提供不同说明。
-
-| 平台类型 | 验证方式 |
-| --- | --- |
-| 链上交易 | 通过 Tx Hash、区块浏览器或链上查询链接核验 |
-| Hyperliquid 类平台 | 通过公开浏览器、地址历史、订单号或平台可查询记录核验 |
-| Extended 类平台 | 通过平台订单号、成交号与订单历史记录核验 |
-| CEX 类平台 | 通过平台订单号、成交号、账户历史与授权记录核验 |
-| 系统内部记录 | 通过 SuperFlow 凭证页、公开 API 或合作方接口核验 |
-
-## 用户能看到什么？
-
-用户在收益凭证中不应该只看到收益金额，而应该看到完整上下文：
-
-<CardGroup cols={2}>
-  <Card title="交易信息" icon="wallet">
-    包括资产、方向、数量、开仓价格、平仓价格与交易时间。
-  </Card>
-
-  <Card title="收益信息" icon="chart-line">
-    包括盈亏金额、收益率、收益周期与平仓原因。
-  </Card>
-
-  <Card title="验证信息" icon="shield-check">
-    包括平台订单号、成交号、链上哈希、查询链接与验证说明。
-  </Card>
-
-  <Card title="风险信息" icon="shield">
-    包括止盈、止损、风控触发、异常关闭或系统保护原因。
+  <Card title="Reduce Trust Cost" icon="lock">
+    Turns yield display into readable, explainable, and verifiable proof.
   </Card>
 </CardGroup>
-
-## Public Voucher API
-
-Verification System 可以为合作方提供公开凭证接口。
-
-例如：
-
-```text
-/api/public/profit-vouchers
-```
-
-该接口可用于让第三方平台读取 SuperFlow 的公开收益凭证数据。
-
-典型返回内容包括：
-
-```json
-{
-  "voucherId": "SFV-2026-000001",
-  "asset": "BTC",
-  "side": "Long",
-  "entryPrice": 65000,
-  "exitPrice": 65800,
-  "pnl": 120.5,
-  "yieldRate": "1.84%",
-  "platform": "Hyperliquid",
-  "orderId": "398612432488",
-  "tradeId": "HL-TRADE-001",
-  "verifyLink": "https://example.com/verify/SFV-2026-000001",
-  "createdAt": "2026-05-06T00:00:00Z"
-}
-```
-
-## Verification System 与 Execution Layer 的关系
-
-Execution Layer 负责真实执行。
-
-Verification System 负责把执行结果变成可读、可查、可解释的凭证。
-
-两者关系是：
-
-```text
-Execution Layer = 真实执行
-Yield System = 收益计算
-Verification System = 结果验证
-```
-
-## Verification System 与用户信任的关系
-
-交易系统的信任，不应该只依赖宣传。
-
-它需要依赖：
-
-- 真实执行记录
-- 可解释收益来源
-- 可追溯订单信息
-- 可查询验证入口
-- 风险与平仓原因说明
-- 第三方可读取数据接口
-
-Verification System 的价值，是把“相信项目”转化为“查看记录、理解来源、验证结果”。
-
-## 风险与边界
-
-Verification System 提供交易结果和收益记录的验证能力，但它不代表收益承诺，也不代表未来结果保证。
-
-真实交易仍然存在：
-
-- 市场波动风险
-- 价格滑点风险
-- 平台执行风险
-- API 连接风险
-- 数据同步风险
-- 策略失效风险
-- 本金亏损风险
-
-因此，凭证系统的作用是提高透明度，而不是消除市场风险。
-
-## 核心结论
-
-Verification System 是 SuperFlow Protocol 的可信凭证层。
-
-它让交易结果和收益记录不再只是页面展示，而是成为可以被记录、解释、查询和核验的系统化数据。

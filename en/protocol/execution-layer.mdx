@@ -1,207 +1,34 @@
 ---
-title: "执行层 Execution Layer"
-description: "SuperFlow Protocol 的高性能交易执行层。"
+title: "Execution Layer"
+description: "The high-performance trading execution layer of SuperFlow Protocol."
 ---
 
 # Execution Layer
 
-Execution Layer 是 SuperFlow Protocol 的高性能交易执行层。
+Execution Layer is the infrastructure that converts trading intent into real market orders.
 
-它负责把 SUPER AGENT 生成的交易意图，以及 Smart Routing 选择的执行路径，最终转化为真实市场中的订单执行。
+## Core Definition
 
-在 SuperFlow 中，执行层不是简单的“下单模块”，而是连接系统决策与真实市场的关键基础设施。
-
-## 核心定义
-
-Execution Layer = 订单执行 + 状态同步 + 结果反馈 + 异常处理
-
-它的目标，是让系统生成的交易意图能够被稳定、准确、可追踪地执行。
-
-## Execution Layer 负责什么？
+Execution Layer = Order Execution + State Synchronization + Result Feedback + Exception Handling
 
 <CardGroup cols={2}>
-  <Card title="订单执行" icon="zap">
-    将交易意图转化为真实订单，并提交到对应交易执行环境。
+  <Card title="Order Execution" icon="zap">
+    Converts trading intent into real orders and sends them to execution venues.
   </Card>
 
-  <Card title="状态同步" icon="chart-line">
-    持续同步订单状态、成交状态、仓位状态与账户状态。
+  <Card title="State Synchronization" icon="chart-line">
+    Synchronizes order status, position state, balance state, and execution feedback.
   </Card>
 
-  <Card title="结果反馈" icon="route">
-    将执行结果反馈给 SUPER AGENT、收益系统与凭证系统。
+  <Card title="Result Feedback" icon="route">
+    Sends execution results back to SUPER AGENT, Yield System, and Verification System.
   </Card>
 
-  <Card title="异常保护" icon="shield">
-    当订单失败、平台异常、余额不足或风险触发时，进入保护逻辑。
+  <Card title="Exception Protection" icon="shield">
+    Handles failed orders, insufficient balance, platform errors, and risk triggers.
   </Card>
 </CardGroup>
 
-## 为什么执行层很重要？
+## Why It Matters
 
-交易系统的质量，不只取决于判断是否正确。
-
-即使方向判断正确，如果执行失败、滑点过高、订单状态不同步、仓位数据错误，也会影响最终结果。
-
-Execution Layer 的价值，是让系统决策能够进入真实市场，并让每一次执行都被记录、反馈和验证。
-
-## 执行流程
-
-<Steps>
-  <Step title="接收执行任务">
-    Execution Layer 接收来自 Smart Routing 的执行任务，包括交易方向、交易数量、执行路径与风险限制。
-  </Step>
-
-  <Step title="检查执行条件">
-    系统检查余额、保证金、最小下单数量、平台状态、API 状态与账户风险。
-  </Step>
-
-  <Step title="提交真实订单">
-    如果条件满足，执行层将交易意图转化为真实订单，并提交到对应平台或执行环境。
-  </Step>
-
-  <Step title="同步执行状态">
-    系统同步订单是否提交成功、是否成交、是否部分成交、是否失败与失败原因。
-  </Step>
-
-  <Step title="更新账户状态">
-    执行结果会更新仓位、余额、保证金、盈亏与风险状态。
-  </Step>
-
-  <Step title="反馈到系统">
-    执行结果会进入 Yield System 与 Verification System，用于收益记录和凭证生成。
-  </Step>
-</Steps>
-
-## 执行模型
-
-```text
-Smart Routing
-  ↓
-Execution Task
-  ↓
-Execution Layer
-  ├─ Balance Check
-  ├─ Margin Check
-  ├─ Order Size Check
-  ├─ Risk Check
-  ├─ Submit Order
-  ├─ Sync Order Status
-  └─ Return Execution Result
-  ↓
-Yield System
-  ↓
-Verification System
-```
-
-## 执行层需要检查什么？
-
-| 检查项 | 说明 |
-| --- | --- |
-| Balance Check | 检查账户可用余额是否满足执行要求 |
-| Margin Check | 检查保证金是否足够 |
-| Order Size Check | 检查订单数量是否满足平台最小下单限制 |
-| Risk Check | 检查是否触发风控限制 |
-| Platform Check | 检查平台连接、API 状态与执行环境 |
-| Status Check | 检查订单提交、成交、失败与状态同步 |
-
-## 订单状态
-
-Execution Layer 会识别并记录不同订单状态。
-
-| 状态 | 说明 |
-| --- | --- |
-| Submitted | 订单已提交 |
-| Filled | 订单已完全成交 |
-| Partially Filled | 订单部分成交 |
-| Failed | 订单失败 |
-| Rejected | 订单被拒绝 |
-| Cancelled | 订单取消 |
-| Synced | 订单结果已同步到系统 |
-
-## 执行反馈
-
-执行结果不会只停留在执行层。
-
-它会反馈到 SuperFlow 的多个系统模块：
-
-<CardGroup cols={2}>
-  <Card title="反馈给 SUPER AGENT" icon="brain">
-    用于更新决策状态、账户状态与风险判断。
-  </Card>
-
-  <Card title="反馈给 Yield System" icon="chart-line">
-    用于计算收益、盈亏、收益率与周期记录。
-  </Card>
-
-  <Card title="反馈给 Verification System" icon="shield-check">
-    用于生成交易凭证、订单记录与可追溯信息。
-  </Card>
-
-  <Card title="反馈给用户界面" icon="chart-line">
-    用于展示交易状态、账户变化、收益记录与执行结果。
-  </Card>
-</CardGroup>
-
-## 异常处理
-
-真实交易环境中，执行异常不可避免。
-
-Execution Layer 会处理以下情况：
-
-<CardGroup cols={2}>
-  <Card title="余额不足" icon="zap">
-    当账户可用余额或保证金不足时，系统阻止执行。
-  </Card>
-
-  <Card title="订单过小" icon="zap">
-    当订单数量低于平台最小限制时，系统阻止执行。
-  </Card>
-
-  <Card title="平台异常" icon="zap">
-    当平台 API、网络连接或订单反馈异常时，系统记录并保护。
-  </Card>
-
-  <Card title="风险触发" icon="zap">
-    当账户风险、极端行情或系统风控触发时，系统暂停或拒绝执行。
-  </Card>
-</CardGroup>
-
-## Execution Layer 与 Smart Routing 的关系
-
-Smart Routing 负责选择更优执行路径。
-
-Execution Layer 负责将路径变成真实订单。
-
-两者关系可以理解为：
-
-```text
-Smart Routing = 选择执行路径
-Execution Layer = 完成真实执行
-Verification System = 验证执行结果
-```
-
-## Execution Layer 与凭证系统的关系
-
-交易是否真实，不能只靠页面展示。
-
-Execution Layer 会把关键执行信息传递给 Verification System，包括：
-
-- 订单方向
-- 开仓价格
-- 平仓价格
-- 成交数量
-- 盈亏结果
-- 平台订单号
-- 平台成交号
-- 交易时间
-- 查询链接
-- 验证说明
-
-这些数据用于生成交易凭证，让收益结果具备可追溯性。
-
-## 核心结论
-
-Execution Layer 是 SuperFlow Protocol 连接真实市场的执行基础设施。
-
-它让 AI 决策不只是停留在系统内部，而是能够进入真实交易环境，并形成可记录、可反馈、可验证的执行结果。
+A correct decision has no value if it cannot be executed properly. Execution quality directly affects yield quality, risk control, and user trust.

@@ -1,124 +1,68 @@
 ---
-title: "系统架构"
-description: "SuperFlow Protocol 的核心系统架构与模块关系。"
+title: "System Architecture"
+description: "Core architecture and module relationship of SuperFlow Protocol."
 ---
 
-# 系统架构
+# System Architecture
 
 <Frame>
   <img src="/images/architecture.svg" alt="SuperFlow Protocol System Architecture" />
 </Frame>
 
-SuperFlow Protocol 是一个 AI-Driven Trading Operating System。
+SuperFlow Protocol consists of multiple connected system layers.
 
-它将交易过程拆分为账户系统、资金系统、AI 决策系统、智能路由系统、执行系统、收益系统与验证系统，并通过 SUPER AGENT 进行统一调度。
-
-## 核心架构模型
-
-SuperFlow 的系统架构可以理解为一个从用户入口到真实交易执行，再到收益验证的完整闭环。
-
-```text
-User
-  ↓
-Account System
-  ↓
-Capital System
-  ↓
-SUPER AGENT
-  ↓
-Smart Routing
-  ↓
-Execution Layer
-  ↓
-Yield System
-  ↓
-Verification System
-```
-
-## 架构总览
+## Core Architecture
 
 <CardGroup cols={2}>
   <Card title="Account System" icon="wallet">
-    负责用户账户、资产状态、权限状态与系统身份的管理。
+    Manages user identity, account state, permissions, and system records.
   </Card>
 
   <Card title="Capital System" icon="wallet">
-    将用户资金转化为可被系统调度的交易资源。
+    Turns user capital into schedulable system resources.
   </Card>
 
   <Card title="SUPER AGENT" icon="brain">
-    SuperFlow 的核心 AI 交易执行体，负责决策、调度与风控。
+    Generates trading decisions, schedules execution, and controls risk.
   </Card>
 
   <Card title="Smart Routing" icon="route">
-    在多平台、多路径、多成本环境中选择更优执行路径。
+    Selects optimized execution paths across cost, depth, speed, and risk.
   </Card>
 
   <Card title="Execution Layer" icon="zap">
-    负责真实订单执行、执行状态同步与交易结果反馈。
+    Converts trading intent into real market orders.
   </Card>
 
   <Card title="Verification System" icon="shield-check">
-    记录交易过程、生成收益凭证，并提供可验证数据。
+    Converts execution results into readable and verifiable proof.
   </Card>
 </CardGroup>
 
-## 模块关系
-
-| 模块 | 核心作用 | 系统意义 |
-| --- | --- | --- |
-| Account System | 管理账户状态与用户权限 | 让用户进入系统 |
-| Capital System | 管理资金状态与调度能力 | 让资金成为可调度资源 |
-| SUPER AGENT | 进行 AI 决策、执行调度与风险控制 | 让交易能力系统化 |
-| Smart Routing | 优化交易路径、成本与执行效率 | 让执行过程更智能 |
-| Execution Layer | 完成真实市场交易 | 让系统连接真实市场 |
-| Yield System | 记录和计算收益结果 | 让收益形成系统模型 |
-| Verification System | 提供交易凭证与验证入口 | 让结果可被追溯 |
-
-## 系统运行流程
+## System Flow
 
 <Steps>
-  <Step title="用户进入系统">
-    用户不再直接面对复杂交易环境，而是通过 SuperFlow 进入统一的交易能力系统。
+  <Step title="User Enters the System">
+    The user creates an account and deposits assets.
   </Step>
 
-  <Step title="资金进入状态管理">
-    用户资金进入 Capital System 后，被系统识别为可调度资源，而不是静态余额。
+  <Step title="Capital Becomes Schedulable">
+    The system identifies capital type, state, cycle, and permission.
   </Step>
 
-  <Step title="SUPER AGENT 进行决策">
-    SUPER AGENT 根据市场状态、账户状态、资金状态与风险状态进行综合判断。
+  <Step title="SUPER AGENT Makes Decisions">
+    AI generates trading intent based on market, account, capital, and risk states.
   </Step>
 
-  <Step title="Smart Routing 优化路径">
-    系统根据成本、深度、速度、滑点与平台状态，选择更适合的交易执行路径。
+  <Step title="Smart Routing Optimizes Execution">
+    The system selects the most suitable execution path.
   </Step>
 
-  <Step title="Execution Layer 完成执行">
-    执行层负责将交易意图转化为真实订单，并同步执行结果。
+  <Step title="Execution Layer Completes Trades">
+    Orders are submitted, synchronized, and returned to the system.
   </Step>
 
-  <Step title="Verification System 生成凭证">
-    系统将交易结果、收益记录与关键执行信息沉淀为可验证凭证。
+  <Step title="Verification System Creates Proof">
+    Yield records and trading vouchers are generated.
   </Step>
 </Steps>
-
-## 为什么 SuperFlow 是系统，而不是工具？
-
-普通交易工具通常只解决一个局部问题：
-
-- 行情展示
-- 下单操作
-- 策略信号
-- 收益统计
-- 资产页面
-
-但真实交易需要的是一套完整系统。
-
-SuperFlow 的设计目标，是将交易过程中的判断、执行、风控、资金管理、收益记录与凭证验证全部纳入统一架构中。
-
-## 核心结论
-
-SuperFlow 不是一个交易入口。
-
-SuperFlow 是一个将交易能力抽象为系统能力的链上交易操作系统。

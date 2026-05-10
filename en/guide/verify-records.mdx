@@ -1,249 +1,28 @@
 ---
-title: "验证记录 Verify Records"
-description: "如何在 SuperFlow Protocol 中查看、理解和验证交易记录与收益凭证。"
+title: "Verify Records"
+description: "How to verify trading records and yield vouchers in SuperFlow Protocol."
 ---
 
 # Verify Records
 
-Verify Records 是用户在 SuperFlow Protocol 中验证交易记录、收益来源和凭证数据的入口。
+Verify Records helps users understand and verify where yield comes from.
 
-在 SuperFlow 中，收益不能只停留在页面数字上。用户需要知道收益来自哪笔交易、交易在哪里执行、开仓和平仓价格是多少、是否有订单号、成交号、查询链接或其他验证信息。
+## A Complete Voucher May Include
 
-## 核心定义
-
-Verify Records = 查看交易记录 + 理解收益来源 + 核验订单数据 + 验证凭证信息
-
-它的目标，是让交易结果和收益结果具备更强的透明度、可解释性和可追溯性。
-
-## 为什么需要验证记录？
-
-在很多交易产品中，用户只能看到一个收益数字，却无法确认这个数字背后的真实来源。
-
-SuperFlow 的验证系统希望解决三个问题：
-
-<CardGroup cols={2}>
-  <Card title="交易是否真实" icon="zap">
-    通过订单号、成交号、交易时间、价格和查询链接，帮助用户核验交易记录。
-  </Card>
-
-  <Card title="收益来自哪里" icon="zap">
-    展示收益对应的资产、方向、开仓价、平仓价、盈亏和收益率。
-  </Card>
-
-  <Card title="过程是否可追溯" icon="zap">
-    记录交易发生时间、执行平台、平仓原因和凭证生成状态。
-  </Card>
-
-  <Card title="合作方是否可读取" icon="zap">
-    通过公开接口或授权接口，让第三方平台读取结构化凭证数据。
-  </Card>
-</CardGroup>
-
-## 用户可以验证什么？
-
-一条完整的交易凭证，通常应该包含以下信息：
-
-| 字段 | 说明 |
+| Field | Description |
 | --- | --- |
-| Voucher ID | 系统凭证编号 |
-| Asset | 交易资产，例如 BTC、ETH、USDT、USDC、SUPER |
-| Side | 交易方向，例如 Long、Short、Buy、Sell |
-| Entry Price | 开仓价格或买入价格 |
-| Exit Price | 平仓价格或卖出价格 |
-| Size | 成交数量 |
-| PnL | 盈亏结果 |
-| Yield Rate | 收益率 |
-| Platform | 执行平台或执行路径 |
-| Order ID | 平台订单号 |
-| Trade ID | 平台成交号 |
-| Tx Hash | 链上交易哈希，如果适用 |
-| Verify Link | 查询链接或验证入口 |
-| Close Reason | 平仓原因，例如止盈、止损、风控触发 |
-| Created At | 交易发生时间 |
-| Status | 凭证状态 |
+| Voucher ID | Internal voucher number |
+| Asset | Trading asset |
+| Side | Long, Short, Buy, or Sell |
+| Entry Price | Entry or buy price |
+| Exit Price | Exit or sell price |
+| PnL | Profit and loss |
+| Yield Rate | Yield percentage |
+| Platform | Execution platform |
+| Order ID | Platform order number |
+| Trade ID | Platform trade number |
+| Verify Link | Query path or verification entrance |
 
-## 验证流程
+## Core Purpose
 
-<Steps>
-  <Step title="进入收益或历史记录页面">
-    用户登录 SuperFlow 后，进入 Yield、History 或 Records 页面。
-  </Step>
-
-  <Step title="选择一条收益记录">
-    用户选择想要核验的收益记录或交易记录。
-  </Step>
-
-  <Step title="打开交易凭证">
-    点击记录中的 Voucher、Verify 或 查询按钮，进入凭证详情页面。
-  </Step>
-
-  <Step title="查看交易信息">
-    检查资产、方向、开仓价、平仓价、数量、盈亏、收益率和交易时间。
-  </Step>
-
-  <Step title="查看验证信息">
-    检查订单号、成交号、链上哈希、查询链接和平台验证说明。
-  </Step>
-
-  <Step title="进行外部核验">
-    如果平台支持公开查询，用户可以通过查询链接或平台历史记录进行进一步核验。
-  </Step>
-</Steps>
-
-## 验证模型
-
-```text
-Yield Record
-  ↓
-Voucher Detail
-  ↓
-Order Info
-  ↓
-Trade Info
-  ↓
-Platform / Chain Verification
-  ↓
-User Confirmation
-```
-
-## 不同平台的验证方式
-
-不同平台支持的验证方式不同，因此凭证说明也应该不同。
-
-| 平台类型 | 验证方式 |
-| --- | --- |
-| 链上交易 | 使用 Tx Hash、区块浏览器或链上查询链接核验 |
-| Hyperliquid 类平台 | 通过公开浏览器、地址历史、订单号或平台可查询记录核验 |
-| Extended 类平台 | 使用平台订单号、成交号，在平台订单历史中核验 |
-| CEX 类平台 | 使用平台订单号、成交号、账户历史或授权记录核验 |
-| SuperFlow 内部记录 | 通过 SuperFlow 凭证页、公开 API 或合作方接口核验 |
-
-## 用户看到的凭证页面应该包含什么？
-
-<CardGroup cols={2}>
-  <Card title="交易信息" icon="wallet">
-    资产、方向、数量、开仓价、平仓价、交易时间和执行平台。
-  </Card>
-
-  <Card title="收益信息" icon="chart-line">
-    盈亏金额、收益率、周期收益、平仓原因和结算状态。
-  </Card>
-
-  <Card title="验证信息" icon="shield-check">
-    订单号、成交号、链上哈希、查询链接和验证说明。
-  </Card>
-
-  <Card title="风险信息" icon="shield">
-    止盈、止损、风控触发、异常关闭或系统保护原因。
-  </Card>
-</CardGroup>
-
-## 凭证状态说明
-
-凭证可能存在不同状态：
-
-| 状态 | 说明 |
-| --- | --- |
-| Pending | 凭证正在生成 |
-| Generated | 凭证已经生成 |
-| Synced | 订单信息和收益数据已经同步 |
-| Verifiable | 存在可用的查询链接或外部验证方式 |
-| Internal Only | 只能通过系统内部记录核验 |
-| Failed | 凭证生成失败或数据异常 |
-| Reviewing | 凭证正在人工或系统复核 |
-
-## Public Voucher API
-
-SuperFlow 可以为合作方提供公开凭证接口。
-
-例如：
-
-```text
-/api/public/profit-vouchers
-```
-
-这个接口可以用于让第三方平台、代理后台、客户系统或合作方读取公开收益凭证。
-
-典型数据结构可以包括：
-
-```json
-{
-  "voucherId": "SFV-2026-000001",
-  "asset": "BTC",
-  "side": "Long",
-  "entryPrice": 65000,
-  "exitPrice": 65800,
-  "size": 0.1,
-  "pnl": 120.5,
-  "yieldRate": "1.84%",
-  "platform": "Hyperliquid",
-  "orderId": "398612432488",
-  "tradeId": "HL-TRADE-001",
-  "verifyLink": "https://example.com/verify/SFV-2026-000001",
-  "closeReason": "Take Profit",
-  "createdAt": "2026-05-06T00:00:00Z"
-}
-```
-
-## 验证记录和用户信任
-
-Verify Records 的价值，不是让用户盲目信任页面展示，而是让用户可以通过结构化信息理解交易结果。
-
-它让用户可以回答这些问题：
-
-```text
-这笔收益来自哪笔交易？
-交易资产是什么？
-方向是什么？
-开仓价格是多少？
-平仓价格是多少？
-盈亏是多少？
-收益率是多少？
-在哪个平台执行？
-有没有订单号或成交号？
-有没有查询链接？
-为什么平仓？
-是否触发了风控？
-```
-
-## 验证记录和风险控制
-
-验证系统不只展示收益，也应该展示风险相关信息。
-
-例如：
-
-| 风险字段 | 说明 |
-| --- | --- |
-| Close Reason | 平仓原因，例如止盈、止损、风控触发 |
-| Risk Trigger | 是否触发风控规则 |
-| Execution Error | 是否发生订单失败、部分成交或平台异常 |
-| Slippage | 是否存在明显滑点 |
-| System Protection | 是否进入系统保护状态 |
-| Review Status | 是否需要进一步复核 |
-
-## 用户注意事项
-
-用户在验证交易记录时，需要注意：
-
-- 并不是所有平台都支持公开订单查询
-- 有些平台只能通过账户历史或订单号核验
-- 链上交易可以通过 Tx Hash 核验
-- CEX 交易通常需要账户授权或内部历史记录核验
-- 凭证系统提高透明度，但不代表未来收益保证
-- 历史收益不代表未来表现
-
-## 风险说明
-
-Verify Records 提供的是交易记录、收益凭证和查询说明。
-
-它不代表收益承诺，不代表本金保护，也不代表未来交易结果保证。
-
-真实市场交易仍然存在价格波动、滑点、流动性不足、平台异常、API 失败、策略失效和本金亏损风险。
-
-## 核心结论
-
-Verify Records 是 SuperFlow Protocol 的交易结果验证入口。
-
-它让收益记录从一个页面数字，升级为可以查看、解释、追溯和核验的系统化凭证。
-
-SuperFlow 的目标，是让用户不仅看到收益，还能理解收益来源，并通过交易凭证降低信任成本。
+Verification turns yield from a displayed number into readable, explainable, and verifiable proof.
